@@ -74,8 +74,9 @@ void main()
 			fscanf(pfile,"%f",&pret);
 			Produs* infoUtil=creareInfoUtil(id, denumire, pret);
 			Nod* nod=creareNod(infoUtil);
-			inserareInceput(head,nod);
-
+			//inserareInceput(head, nod);
+			inserareSfarsit(head, nod);
+				
 			fscanf(pfile,"%d",&id);
 		}
 		fclose(pfile);
