@@ -57,7 +57,7 @@ bool emptyCoada(NodCoada* head)
 }
 NodCoada* getElementCoada(NodCoada *&head)
 {
-	NodCoada *tmp=head;
+	NodCoada* tmp=head;
 	if(head==head->next && head==head->prev)
 		head=NULL;
 	else
