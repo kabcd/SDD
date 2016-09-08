@@ -28,7 +28,7 @@ Nod* creareNod(Produs* infoUtil)
 	tmp->prev=NULL;
 	return tmp;
 }
-//inseare la inceput
+//inserare la inceput
 void inserareInceput(Nod* &head, Nod* nod)
 {
 	if(head==NULL)
