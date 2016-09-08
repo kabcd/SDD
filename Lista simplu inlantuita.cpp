@@ -50,7 +50,7 @@ void inserareInceput(Nod* &head, Nod* nod)
 		head=nod;
 	}
 }
-void parcurgereLista(Nod *head)
+void parcurgereLista(Nod* head)
 {
 	while(head!=NULL)
 	{
