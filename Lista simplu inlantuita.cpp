@@ -33,7 +33,7 @@ void inserareSfarsit(Nod* &head, Nod* nod)
 		head=nod;
 	else
 	{
-		Nod *tmp=head;
+		Nod* tmp=head;
 		while(tmp->next!=NULL)
 			tmp=tmp->next;
 		tmp->next=nod;
