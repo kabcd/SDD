@@ -1,0 +1,5 @@
+100 Produs01 52 
+101 Produs02 10.5
+102 Produs03 84
+103 Produs04 23.6
+104 Produs05 105
