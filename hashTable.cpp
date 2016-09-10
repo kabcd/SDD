@@ -5,10 +5,6 @@ struct Produs{
 	float pret;
 	char* denumire;
 };
-struct Nod{
-	Produs* infoUtil;
-	Nod* next;
-};
 struct HashTable{
 	Produs* *vector;
 	int nrElemente;
@@ -37,7 +33,7 @@ void initHashTable(HashTable &htab, int nrEl)
 	memset(htab.vector,0,sizeof(Produs*)*nrEl);
 }
 //inserare - linear probing
-void inserare(HashTable htab, Produs* info)
+void inserareHashTable(HashTable htab, Produs* info)
 {
 	int poz=functie_hash(info->denumire, htab.nrElemente);
 	if(htab.vector[poz]==NULL)
@@ -66,7 +62,7 @@ void inserare(HashTable htab, Produs* info)
 		}
 	}
 }
-void parcurgereLista(HashTable htab)
+void parcurgereHashTable(HashTable htab)
 {
 	if(htab.vector!=NULL)
 	{
@@ -97,11 +93,11 @@ void main()
 			fscanf(pfile,"%s",denumire);
 			fscanf(pfile,"%f",&pret);
 			Produs* info=creareInfoUtil(id, denumire, pret);
-			inserare(htab, info);
+			inserareHashTable(htab, info);
 				
 			fscanf(pfile,"%d",&id);
 		}
 		fclose(pfile);
-		parcurgereLista(htab);
+		parcurgereHashTable(htab);
 	}
 }
