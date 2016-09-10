@@ -1,1 +1,8 @@
-
+10 TV 52 
+2 Router 100.5
+27 Mouse 84
+1 Tastatura 23.6
+30 Mixer 105
+23 Laptop 2899.99
+16 Imprimanta 223
+24 SmartWatch 1800
