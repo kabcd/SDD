@@ -31,12 +31,10 @@ void inserareNodArbore(NodArbore* &radacina, NodArbore* nod)
 {
 	if(radacina==NULL)
 		radacina=nod;
-	else
-		if(nod->infoUtil->id < radacina->infoUtil->id)
-			inserareNodArbore(radacina->stang,nod);
-		else
-			if(nod->infoUtil->id > radacina->infoUtil->id)
-				inserareNodArbore(radacina->drept,nod);
+	else if(nod->infoUtil->id < radacina->infoUtil->id)
+		inserareNodArbore(radacina->stang,nod);
+	else if(nod->infoUtil->id > radacina->infoUtil->id)
+		inserareNodArbore(radacina->drept,nod);
 }
 int max(int a, int b)
 {
