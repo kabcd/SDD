@@ -141,7 +141,7 @@ void main()
 
 	printf("Inaltime arbore: %d \n",getInaltime(radacina));
 
-	inserareNodArbore(radacina, creareNodArbore(creareInfoUtil(135, "Produs06", 8.5)));
+	inserareNodArbore(radacina, creareNodArbore(creareInfoUtil(26, "ProdusNou", 8.5)));
 	printf("-----Rebalansare arbore-------\n");
 	parcurgereRSD(radacina);
 }
