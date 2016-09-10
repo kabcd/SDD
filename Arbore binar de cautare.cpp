@@ -165,7 +165,7 @@ void main()
 	printf("------Parcurgere PostOrdine-----------\n");
 	parcurgereSDR(radacina);
 
-	printf("Inaltime arbore: %d ",getInaltime(radacina));
+	printf("Inaltime arbore: %d\n",getInaltime(radacina));
 
 	stergereNodArbore(radacina,155);
 	printf("------Stergere nod-----------\n");
