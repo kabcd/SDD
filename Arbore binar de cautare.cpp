@@ -167,7 +167,7 @@ void main()
 
 	printf("Inaltime arbore: %d\n",getInaltime(radacina));
 
-	stergereNodArbore(radacina,155);
+	stergereNodArbore(radacina,10);
 	printf("------Stergere nod-----------\n");
 	parcurgereRSD(radacina);
 }
