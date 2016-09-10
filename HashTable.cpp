@@ -42,7 +42,7 @@ void initHashTable(HashTable &htab, int nrEl)
 
 }
 //inserare - chaining  
-void inserare(HashTable htab, Nod* nod)
+void inserareHashTable(HashTable htab, Nod* nod)
 {
 	int poz=functie_hash(nod->infoUtil->id, htab.nrElemente);
 	if(htab.vector[poz]==NULL)
@@ -55,7 +55,7 @@ void inserare(HashTable htab, Nod* nod)
 		htab.vector[poz]=tmp;
 	}
 }
-void parcurgereLista(HashTable htab)
+void parcurgereHashTable(HashTable htab)
 {
 	if(htab.vector!=NULL)
 	{
@@ -91,11 +91,11 @@ void main()
 			fscanf(pfile,"%f",&pret);
 			Produs* infoUtil=creareInfoUtil(id, denumire, pret);
 			Nod* nod=creareNod(infoUtil);
-			inserare(htab, nod);
+			inserareHashTable(htab, nod);
 				
 			fscanf(pfile,"%d",&id);
 		}
 		fclose(pfile);
-		parcurgereLista(htab);
+		parcurgereHashTable(htab);
 	}
 }
