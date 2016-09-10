@@ -5,7 +5,7 @@ struct Produs{
 	float pret;
 	char* denumire;
 };
-//stiva - implementata ca lista simplu inlantuita
+//stiva - implementata ca lista simplu inlantuita circulara
 //LIFO
 //adaugarea unui element la inceputul cozii(push)
 //extragerea unui element de la inceputul cozii(pop)
@@ -33,19 +33,34 @@ NodStiva* creareNod(Produs* infoUtil)
 void pushElementStiva(NodStiva* &head, NodStiva* nod)
 {
 	if(head==NULL)
+	{
 		head=nod;
+		head->next=head;
+	}
 	else
 	{
+		NodStiva* tmp=head;
+		while(tmp->next!=head)
+			tmp=tmp->next;
+		tmp->next=nod;
 		nod->next=head;
 		head=nod;
 	}
 }
 NodStiva* popElementStiva(NodStiva *&head)
 {
-	NodStiva* tmp=head;
-	if(head!=NULL)
+	NodStiva* element=head;
+	if(head==head->next)
+		head=NULL;
+	else
+	{
+		NodStiva* tmp=head;
+		while(tmp->next!=head)
+			tmp=tmp->next;
+		tmp->next=head->next;
 		head=head->next;
-	return tmp;
+	}
+	return element;
 }
 void main()
 {
