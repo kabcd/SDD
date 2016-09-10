@@ -76,6 +76,66 @@ void parcurgereSDR(NodArbore* radacina)
 		printf("%d \n",radacina->infoUtil->id);
 	}
 }
+void stergNod(NodArbore* &radacina, NodArbore* &subArb)
+{
+	if(subArb->drept!=NULL)
+		stergNod(radacina, subArb->drept);
+	else
+	{
+		Produs* info=radacina->infoUtil;
+		radacina->infoUtil=subArb->infoUtil;
+		free(info);
+		NodArbore* tmp=subArb;
+		subArb=subArb->stang;
+		free(tmp);
+	}
+}
+void stergereNodArbore(NodArbore* &radacina, int cheie)
+{
+	if(radacina!=NULL)
+	{
+		if(cheie < radacina->infoUtil->id)
+			stergereNodArbore(radacina->stang, cheie);
+		else 
+		{
+			if(cheie > radacina->infoUtil->id)
+				stergereNodArbore(radacina->drept, cheie);
+			else
+			{
+				if(radacina->stang==NULL && radacina->drept==NULL)
+				{
+					free(radacina->infoUtil);
+					free(radacina);
+					radacina=NULL;
+				}
+				else
+				{
+					if(radacina->drept!=NULL && radacina->stang==NULL)
+					{
+						NodArbore* tmp=radacina;
+						radacina=radacina->drept;
+						free(tmp->infoUtil);
+						free(tmp);
+					}
+					else
+					{
+						if(radacina->drept==NULL && radacina->stang!=NULL)
+						{
+							NodArbore* tmp=radacina;
+							radacina=radacina->stang;
+							free(tmp->infoUtil);
+							free(tmp);
+						}	
+						else
+							stergNod(radacina, radacina->stang);
+					}
+				}
+			}
+		}
+	}	
+	else
+		printf("Cheie inexistenta!");
+}
 void main()
 {
 	FILE *pfile=fopen("produse.txt","r");
@@ -101,13 +161,17 @@ void main()
 	printf("------Parcurgere PreOrdine-----------\n");
 	parcurgereRSD(radacina);
 
-	printf("------Parcurgere InOrdine-----------\n");
+	printf("------Parcurgere InOrdine-------------\n");
 	parcurgereSRD(radacina);
 
 	printf("------Parcurgere PostOrdine-----------\n");
 	parcurgereSDR(radacina);
 
 	printf("Inaltime arbore: %d ",getInaltime(radacina));
+
+	stergereNodArbore(radacina,155);
+	printf("------Stergere nod-----------\n");
+	parcurgereRSD(radacina);
 }
 
 
