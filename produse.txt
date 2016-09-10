@@ -1,0 +1,5 @@
+155 Produs01 52 
+120 Produs02 10.5
+101 Produs03 84
+168 Produs04 23.6
+135 Produs05 105
